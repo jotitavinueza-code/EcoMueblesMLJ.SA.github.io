@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ECO MUEBLES MLJ S.A. – Diseño que cuida el planeta</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="logo.png" alt="ECO MUEBLES MLJ" id="nav-logo-img" onerror="this.style.display='none'; document.getElementById('nav-logo-text').style.display='block'"/>
+      <span id="nav-logo-text" style="display:none">ECO MUEBLES</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#mision">Misión</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="admin.html" class="nav-admin"><i class="fa fa-cog"></i> Admin</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌿 Economía Circular</div>
+    <h1 class="hero-title">
+      Transformamos<br/>
+      <span class="hero-accent">llantas en desuso</span><br/>
+      en muebles ecológicos
+    </h1>
+    <p class="hero-sub">Diseño sostenible, resistente y funcional para espacios que respetan el planeta.</p>
+    <div class="hero-ctas">
+      <a href="#productos" class="btn-primary">Ver Productos</a>
+      <a href="#proceso" class="btn-outline">¿Cómo lo hacemos?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Reciclado</span></div>
+      <div class="stat"><span class="stat-num">0</span><span class="stat-label">Llantas al basurero</span></div>
+      <div class="stat"><span class="stat-num">♻️</span><span class="stat-label">Impacto positivo</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap" id="heroImgWrap">
+      <img src="hero-product.jpg" alt="Mueble ecológico" id="heroImg" onerror="this.parentNode.classList.add('no-img')"/>
+      <div class="hero-img-placeholder">
+        <i class="fa fa-chair"></i>
+        <span>Imagen del producto</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE NOSOTROS -->
+<section class="section" id="nosotros">
+  <div class="container two-col">
+    <div class="col-text fade-in">
+      <div class="section-tag">Sobre Nosotros</div>
+      <h2 class="section-title">Quiénes Somos</h2>
+      <p class="body-text">
+        <strong>ECO MUEBLES MLJ S.A.</strong> es una empresa enfocada en la fabricación de muebles ecológicos a partir de llantas recicladas. Combinamos diseño, funcionalidad y responsabilidad ambiental para crear piezas únicas que dan una segunda vida a los residuos.
+      </p>
+      <p class="body-text">
+        Surgimos a partir de un plan de negocios con enfoque ambiental, respondiendo a la creciente necesidad de alternativas sostenibles en el sector del mueble y el diseño de interiores.
+      </p>
+      <div class="values-grid">
+        <div class="value-chip"><span>🌱</span> Sostenibilidad</div>
+        <div class="value-chip"><span>💡</span> Innovación</div>
+        <div class="value-chip"><span>🤝</span> Responsabilidad Social</div>
+        <div class="value-chip"><span>⭐</span> Calidad</div>
+      </div>
+    </div>
+    <div class="col-visual fade-in">
+      <div class="about-img-wrap" id="aboutImgWrap">
+        <img src="about-us.jpg" alt="Sobre nosotros" id="aboutImg" onerror="this.parentNode.classList.add('no-img')"/>
+        <div class="about-img-placeholder"><i class="fa fa-leaf"></i></div>
+      </div>
+      <div class="about-badge">MLJ S.A.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MISIÓN / VISIÓN / OBJETIVO -->
+<section class="section section-dark" id="mision">
+  <div class="container">
+    <div class="section-tag light">Propósito</div>
+    <h2 class="section-title light">Nuestra Razón de Ser</h2>
+    <div class="mvg-grid">
+      <div class="mvg-card fade-in">
+        <div class="mvg-icon"><i class="fa fa-bullseye"></i></div>
+        <h3>Misión</h3>
+        <p>Ofrecer muebles ecológicos elaborados a partir de llantas recicladas, brindando soluciones funcionales y sostenibles que contribuyan al cuidado del medio ambiente.</p>
+      </div>
+      <div class="mvg-card fade-in">
+        <div class="mvg-icon"><i class="fa fa-eye"></i></div>
+        <h3>Visión</h3>
+        <p>Ser una empresa reconocida a nivel nacional por la innovación en el diseño de muebles ecológicos, promoviendo la economía circular y el desarrollo sostenible.</p>
+      </div>
+      <div class="mvg-card fade-in">
+        <div class="mvg-icon"><i class="fa fa-flag"></i></div>
+        <h3>Objetivo General</h3>
+        <p>Desarrollar y comercializar muebles ecológicos a partir de materiales reciclados, reduciendo el impacto ambiental y generando valor económico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="section" id="productos">
+  <div class="container">
+    <div class="section-tag">Catálogo</div>
+    <h2 class="section-title">Nuestros Productos</h2>
+    <p class="section-sub">Cada pieza es única. Fabricada con llantas recicladas, diseñada para durar.</p>
+    <div class="products-grid" id="productsGrid">
+      <!-- Productos por defecto, editables desde admin -->
+      <div class="product-card fade-in">
+        <div class="product-img-wrap" id="prod-img-0">
+          <img src="productos/silla.jpg" alt="Silla ecológica" onerror="this.parentNode.classList.add('no-img')"/>
+          <div class="product-placeholder"><i class="fa fa-chair"></i></div>
+          <div class="product-badge">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <h3>Silla Ecológica</h3>
+          <p>Diseñada con llanta reciclada y estructura metálica. Resistente, cómoda y 100% ecológica.</p>
+          <div class="product-tags"><span>♻️ Reciclado</span><span>💪 Resistente</span></div>
+        </div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-img-wrap" id="prod-img-1">
+          <img src="productos/mesa.jpg" alt="Mesa con llantas recicladas" onerror="this.parentNode.classList.add('no-img')"/>
+          <div class="product-placeholder"><i class="fa fa-table"></i></div>
+        </div>
+        <div class="product-info">
+          <h3>Mesa con Llantas</h3>
+          <p>Mesa de centro o comedor usando llantas como base estructural. Estética industrial con alma verde.</p>
+          <div class="product-tags"><span>🌿 Eco-friendly</span><span>🎨 Personalizable</span></div>
+        </div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-img-wrap" id="prod-img-2">
+          <img src="productos/puff.jpg" alt="Puff decorativo" onerror="this.parentNode.classList.add('no-img')"/>
+          <div class="product-placeholder"><i class="fa fa-circle"></i></div>
+        </div>
+        <div class="product-info">
+          <h3>Puff Decorativo</h3>
+          <p>Llanta reciclada tapizada con telas de alta calidad. Ideal para salas, habitaciones o espacios creativos.</p>
+          <div class="product-tags"><span>🛋️ Confort</span><span>✨ Decorativo</span></div>
+        </div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-img-wrap" id="prod-img-3">
+          <img src="productos/macetero.jpg" alt="Macetero" onerror="this.parentNode.classList.add('no-img')"/>
+          <div class="product-placeholder"><i class="fa fa-seedling"></i></div>
+        </div>
+        <div class="product-info">
+          <h3>Macetero Ecológico</h3>
+          <p>Llantas transformadas en maceteros para jardín o interior. Una forma creativa de reutilizar y decorar.</p>
+          <div class="product-tags"><span>🌺 Jardín</span><span>♻️ Reciclado</span></div>
+        </div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-img-wrap" id="prod-img-4">
+          <img src="productos/personalizado.jpg" alt="Mueble personalizado" onerror="this.parentNode.classList.add('no-img')"/>
+          <div class="product-placeholder"><i class="fa fa-pencil-ruler"></i></div>
+          <div class="product-badge" style="background:#1a6b2e;">A medida</div>
+        </div>
+        <div class="product-info">
+          <h3>Muebles Personalizados</h3>
+          <p>Diseñamos el mueble que necesitas. Medidas, colores, estilos — todo adaptado a tu espacio y gusto.</p>
+          <div class="product-tags"><span>📐 A medida</span><span>🎨 Tu diseño</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section section-green" id="proceso">
+  <div class="container">
+    <div class="section-tag light">Proceso</div>
+    <h2 class="section-title light">¿Cómo lo Hacemos?</h2>
+    <p class="section-sub light">Un proceso cuidadoso, artesanal y responsable de inicio a fin.</p>
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="fa fa-truck"></i></div>
+        <h3>Recolección de Llantas</h3>
+        <p>Recogemos llantas en desuso de talleres, empresas y puntos de acopio.</p>
+      </div>
+      <div class="process-arrow"><i class="fa fa-chevron-right"></i></div>
+      <div class="process-step fade-in">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="fa fa-soap"></i></div>
+        <h3>Limpieza y Tratamiento</h3>
+        <p>Cada llanta se limpia, desinfecta y trata para garantizar higiene y durabilidad.</p>
+      </div>
+      <div class="process-arrow"><i class="fa fa-chevron-right"></i></div>
+      <div class="process-step fade-in">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="fa fa-pencil-ruler"></i></div>
+        <h3>Diseño del Producto</h3>
+        <p>Nuestro equipo diseña cada pieza pensando en funcionalidad y estética.</p>
+      </div>
+      <div class="process-arrow"><i class="fa fa-chevron-right"></i></div>
+      <div class="process-step fade-in">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i class="fa fa-tools"></i></div>
+        <h3>Ensamblaje</h3>
+        <p>Unimos las piezas con técnicas artesanales e industriales de calidad.</p>
+      </div>
+      <div class="process-arrow"><i class="fa fa-chevron-right"></i></div>
+      <div class="process-step fade-in">
+        <div class="step-num">05</div>
+        <div class="step-icon"><i class="fa fa-star"></i></div>
+        <h3>Acabado Final</h3>
+        <p>Pinturas, tapizados y detalles finales que dan vida y carácter a cada mueble.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO AMBIENTAL -->
+<section class="section" id="impacto">
+  <div class="container">
+    <div class="section-tag">Medio Ambiente</div>
+    <h2 class="section-title">Nuestro Impacto Ambiental</h2>
+    <p class="section-sub">Cada mueble que fabricamos es una llanta que no contamina el planeta.</p>
+    <div class="impact-grid">
+      <div class="impact-card fade-in">
+        <div class="impact-icon">🗑️</div>
+        <h3>Reducción de Residuos</h3>
+        <p>Las llantas son uno de los residuos más difíciles de eliminar. Nosotros les damos una nueva vida útil.</p>
+      </div>
+      <div class="impact-card fade-in">
+        <div class="impact-icon">🔄</div>
+        <h3>Reutilización de Materiales</h3>
+        <p>Aplicamos los principios de la economía circular: lo que ya fue usado, vuelve a tener valor.</p>
+      </div>
+      <div class="impact-card fade-in">
+        <div class="impact-icon">🌍</div>
+        <h3>Contribución a la Sostenibilidad</h3>
+        <p>Cada compra apoya un modelo de negocio responsable que cuida el planeta para las generaciones futuras.</p>
+      </div>
+    </div>
+    <div class="impact-banner fade-in">
+      <span class="impact-big">Cada producto evita que una llanta termine contaminando el ambiente.</span>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section section-light" id="galeria">
+  <div class="container">
+    <div class="section-tag">Galería</div>
+    <h2 class="section-title">Nuestros Trabajos</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Las imágenes se cargan desde el admin o se muestran placeholders -->
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section section-dark" id="contacto">
+  <div class="container two-col">
+    <div class="col-text fade-in">
+      <div class="section-tag light">Contacto</div>
+      <h2 class="section-title light">Hablemos</h2>
+      <div class="contact-info">
+        <div class="contact-item" id="contact-phone">
+          <i class="fa fa-phone"></i>
+          <div>
+            <strong>Teléfono</strong>
+            <span id="phone-text">+593 999 999 999</span>
+          </div>
+        </div>
+        <div class="contact-item" id="contact-email">
+          <i class="fa fa-envelope"></i>
+          <div>
+            <strong>Correo</strong>
+            <span id="email-text">ecomuebles.mlj@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-item" id="contact-location">
+          <i class="fa fa-map-marker-alt"></i>
+          <div>
+            <strong>Ubicación</strong>
+            <span id="location-text">Ecuador</span>
+          </div>
+        </div>
+      </div>
+      <!-- REDES SOCIALES -->
+      <div class="social-links" id="socialLinks">
+        <a href="#" id="ig-link" class="social-btn ig" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" id="fb-link" class="social-btn fb" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" id="wa-link" class="social-btn wa" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="col-form fade-in">
+      <form class="contact-form" id="contactForm" onsubmit="handleForm(event)">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" placeholder="Tu nombre" required/>
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="tu@correo.com" required/>
+        </div>
+        <div class="form-group">
+          <label>¿En qué podemos ayudarte?</label>
+          <select>
+            <option>Cotización de producto</option>
+            <option>Mueble personalizado</option>
+            <option>Información general</option>
+            <option>Alianzas o proveedores</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Escribe tu mensaje aquí..." rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary full">Enviar Mensaje <i class="fa fa-paper-plane"></i></button>
+        <div class="form-success" id="formSuccess">✅ ¡Mensaje recibido! Te contactaremos pronto.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Logo" class="footer-logo" onerror="this.style.display='none'"/>
+        <div>
+          <strong>ECO MUEBLES MLJ S.A.</strong>
+          <p>Diseño que cuida el planeta</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" id="footer-ig" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" id="footer-fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" id="footer-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ECO MUEBLES MLJ S.A. — Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="#" id="whatsapp-float" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="main.js"></script>
+</body>
+</html>

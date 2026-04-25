@@ -1,0 +1,92 @@
+// =============================================
+//   ECO MUEBLES MLJ S.A. — main.js
+// =============================================
+
+// ---- Navbar scroll effect ----
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ---- Mobile hamburger ----
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// ---- Fade-in on scroll ----
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// ---- Contact form ----
+function handleForm(e) {
+  e.preventDefault();
+  const success = document.getElementById('formSuccess');
+  success.style.display = 'block';
+  e.target.reset();
+  setTimeout(() => success.style.display = 'none', 5000);
+}
+
+// ---- Load saved data from localStorage ----
+function loadSiteData() {
+  const data = getSiteData();
+
+  // Redes sociales
+  if (data.instagram) {
+    document.getElementById('ig-link').href = data.instagram;
+    document.getElementById('footer-ig').href = data.instagram;
+  }
+  if (data.facebook) {
+    document.getElementById('fb-link').href = data.facebook;
+    document.getElementById('footer-fb').href = data.facebook;
+  }
+  if (data.whatsapp) {
+    const wa = `https://wa.me/${data.whatsapp.replace(/\D/g,'')}`;
+    document.getElementById('wa-link').href = wa;
+    document.getElementById('footer-wa').href = wa;
+    document.getElementById('whatsapp-float').href = wa;
+  }
+
+  // Contacto
+  if (data.phone) document.getElementById('phone-text').textContent = data.phone;
+  if (data.email) document.getElementById('email-text').textContent = data.email;
+  if (data.location) document.getElementById('location-text').textContent = data.location;
+
+  // Imágenes hero y about
+  if (data.heroImg) document.getElementById('heroImg').src = data.heroImg;
+  if (data.aboutImg) document.getElementById('aboutImg').src = data.aboutImg;
+
+  // Galería
+  const galleryGrid = document.getElementById('galleryGrid');
+  if (data.gallery && data.gallery.length > 0) {
+    galleryGrid.innerHTML = '';
+    data.gallery.forEach(src => {
+      const div = document.createElement('div');
+      div.className = 'gallery-item';
+      div.innerHTML = `<img src="${src}" alt="Galería ECO MUEBLES"/>`;
+      galleryGrid.appendChild(div);
+    });
+  } else {
+    galleryGrid.innerHTML = `<div class="gallery-empty"><i class="fa fa-images"></i>Las imágenes de galería se configuran desde el panel Admin.</div>`;
+  }
+}
+
+function getSiteData() {
+  try {
+    return JSON.parse(localStorage.getItem('ecomuebles_data') || '{}');
+  } catch { return {}; }
+}
+
+loadSiteData();
