@@ -1,82 +1,855 @@
-# 🌿 ECO MUEBLES MLJ S.A. — Sitio Web Estático
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ECO MUEBLES MLJ S.A. — Diseño que cuida el planeta</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ===================================================
+   ECO MUEBLES MLJ S.A. — Todo-en-uno
+   =================================================== */
+:root{
+  --g1:#0d2b18;--g2:#1a4a2e;--g3:#2d7a4f;--g4:#4caf7d;--g5:#7ed957;
+  --cr:#f5f0e8;--cr2:#ede6d6;--ch:#1c1c1c;--ch2:#2e2e2e;--wh:#fff;
+  --muted:#5a6b60;--r:16px;--rs:8px;
+  --sh:0 8px 40px rgba(0,0,0,.12);--shl:0 20px 60px rgba(0,0,0,.2);
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--ch);background:var(--cr);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
-## Archivos del proyecto
+/* ── NAVBAR ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:var(--tr);padding:0 2rem}
+.nav.sc{background:rgba(13,43,24,.96);backdrop-filter:blur(14px);box-shadow:0 2px 30px rgba(0,0,0,.25)}
+.nav-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-logo img{height:46px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.nav-logo span{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--wh)}
+.nav-ul{display:flex;list-style:none;gap:.15rem;align-items:center}
+.nav-ul a{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:500;padding:.45rem .8rem;border-radius:var(--rs);transition:var(--tr);letter-spacing:.02em}
+.nav-ul a:hover{color:var(--g5);background:rgba(255,255,255,.07)}
+.nav-ul .adm{background:var(--g4)!important;color:#fff!important;padding:.45rem 1rem!important}
+.nav-ul .adm:hover{background:var(--g5)!important;color:var(--ch)!important}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hbg span{width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--tr)}
 
-```
-ecomuebles/
-├── index.html      ← Página principal (sitio web)
-├── styles.css      ← Estilos de la página principal
-├── main.js         ← Lógica del sitio (carga datos, animaciones)
-├── admin.html      ← Panel de administración
-├── admin.css       ← Estilos del panel admin
-├── admin.js        ← Lógica del panel admin
-└── README.md       ← Este archivo
-```
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--g1);display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 2rem 80px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,rgba(45,122,79,.45),transparent 60%),radial-gradient(ellipse 40% 40% at 15% 80%,rgba(76,175,125,.12),transparent 50%);pointer-events:none}
+.hero-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(126,217,87,.05) 1px,transparent 1px);background-size:38px 38px}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:90px;background:var(--cr);clip-path:ellipse(55% 100% at 50% 100%)}
+.hero-c{flex:1;max-width:580px;position:relative;z-index:2}
+.h-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(126,217,87,.12);border:1px solid rgba(126,217,87,.35);color:var(--g5);padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;letter-spacing:.05em;margin-bottom:1.4rem;animation:fu .6s ease both}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.08;color:#fff;margin-bottom:1.1rem;animation:fu .7s .1s ease both}
+.h-acc{color:var(--g5)}
+.h-sub{font-size:1rem;color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:2rem;animation:fu .7s .2s ease both}
+.h-ctas{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.5rem;animation:fu .7s .3s ease both}
+.h-stats{display:flex;gap:2rem;animation:fu .7s .4s ease both}
+.s-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--g5);display:block}
+.s-lbl{font-size:.72rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+.hero-v{flex:1;display:flex;justify-content:center;align-items:center;position:relative;z-index:2}
+.hero-orb{width:360px;height:360px;border-radius:50% 40% 50% 40%/40% 50% 40% 50%;background:rgba(255,255,255,.05);border:2px solid rgba(126,217,87,.2);overflow:hidden;display:flex;align-items:center;justify-content:center;animation:flt 4s ease-in-out infinite;position:relative}
+.hero-orb-ph{color:rgba(255,255,255,.18);font-size:5rem;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.hero-orb-ph span{font-size:.8rem;color:rgba(255,255,255,.25)}
 
----
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.88rem 1.7rem;border-radius:100px;font-weight:600;font-size:.88rem;letter-spacing:.02em;transition:var(--tr);border:none;cursor:pointer;font-family:'DM Sans',sans-serif}
+.btn-g{background:var(--g4);color:#fff;box-shadow:0 4px 20px rgba(76,175,125,.4)}
+.btn-g:hover{background:var(--g5);color:var(--ch);transform:translateY(-2px);box-shadow:0 8px 28px rgba(126,217,87,.4)}
+.btn-o{background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff}
+.btn-o:hover{border-color:var(--g5);color:var(--g5)}
+.btn-full{width:100%;justify-content:center;border-radius:var(--rs)}
 
-## 🚀 Cómo usar el sitio
+/* ── SECTIONS ── */
+.sec{padding:96px 2rem}
+.sec-dk{background:var(--ch)}
+.sec-gr{background:var(--g1)}
+.sec-lt{background:var(--cr2)}
+.wrap{max-width:1200px;margin:0 auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g4);margin-bottom:.7rem}
+.tag.lt{color:var(--g5)}
+.ttl{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:1.12;margin-bottom:1.4rem;color:var(--ch)}
+.ttl.lt{color:#fff}
+.sub{font-size:.95rem;color:var(--muted);margin-bottom:2.8rem;max-width:540px;line-height:1.75}
+.sub.lt{color:rgba(255,255,255,.65)}
+.body-t{font-size:.95rem;line-height:1.8;color:var(--muted);margin-bottom:1.1rem}
 
-### 1. Abrir el sitio
-Haz doble clic en `index.html` para abrir el sitio en tu navegador.
+/* ── ABOUT ── */
+.vals{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
+.vc{display:flex;align-items:center;gap:.4rem;padding:.45rem .95rem;background:var(--cr2);border:1px solid rgba(45,122,79,.18);border-radius:100px;font-size:.82rem;font-weight:500;color:var(--g2);transition:var(--tr)}
+.vc:hover{background:var(--g4);color:#fff}
+.ab-vis{position:relative}
+.ab-img{width:100%;aspect-ratio:4/5;border-radius:40% 60% 60% 40%/40% 40% 60% 60%;background:var(--g2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ab-img img{width:100%;height:100%;object-fit:cover}
+.ab-ph{color:rgba(255,255,255,.15);font-size:5rem}
+.ab-badge{position:absolute;bottom:-1rem;right:.5rem;background:var(--g4);color:#fff;font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;padding:.75rem 1.3rem;border-radius:var(--r);box-shadow:var(--sh)}
 
-### 2. Panel de Administración
-Haz clic en el botón **Admin** en el menú de navegación, o abre directamente `admin.html`.
+/* ── MVG ── */
+.mvg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem}
+.mvg{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);padding:1.8rem;transition:var(--tr)}
+.mvg:hover{background:rgba(76,175,125,.1);border-color:var(--g4);transform:translateY(-4px)}
+.mvg-ic{width:50px;height:50px;background:rgba(76,175,125,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--g5);margin-bottom:1.1rem}
+.mvg h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;margin-bottom:.7rem}
+.mvg p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7}
 
-Desde el panel Admin puedes:
-- ✅ Cambiar teléfono, correo y ubicación
-- ✅ Agregar tus URLs de Instagram, Facebook y WhatsApp
-- ✅ Subir imágenes: hero, nosotros, logo, productos
-- ✅ Gestionar la galería de fotos (agregar/eliminar)
+/* ── PRODUCTS ── */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.4rem}
+.pcard{background:var(--wh);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:var(--tr)}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--shl)}
+.pimg{height:210px;background:var(--cr2);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.pimg-ph{color:rgba(45,122,79,.22);font-size:3.2rem;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.pimg-ph span{font-size:.72rem;color:rgba(45,122,79,.35);font-weight:500}
+.pbadge{position:absolute;top:10px;right:10px;background:var(--g4);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.04em;padding:.28rem .7rem;border-radius:100px}
+.pinfo{padding:1.3rem}
+.pinfo h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.55rem;color:var(--g2)}
+.pinfo p{font-size:.84rem;color:var(--muted);line-height:1.65;margin-bottom:.8rem}
+.ptags{display:flex;flex-wrap:wrap;gap:.35rem}
+.ptags span{font-size:.72rem;background:var(--cr2);color:var(--g2);padding:.22rem .6rem;border-radius:100px;font-weight:500}
 
-> **Nota:** Los datos se guardan en el navegador (localStorage). Funcionan en el mismo computador donde los configuras.
+/* ── PROCESS ── */
+.proc-wrap{display:flex;align-items:flex-start;gap:.4rem;margin-top:2.5rem;overflow-x:auto;padding-bottom:1rem}
+.pstep{flex:1;min-width:130px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);padding:1.6rem 1rem;text-align:center;transition:var(--tr)}
+.pstep:hover{background:rgba(76,175,125,.12);border-color:var(--g5)}
+.sn{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:rgba(126,217,87,.18);line-height:1;margin-bottom:.3rem}
+.si{font-size:1.5rem;color:var(--g5);margin-bottom:.7rem}
+.pstep h3{font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.pstep p{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.5}
+.parr{color:var(--g4);font-size:.9rem;padding-top:2.8rem;flex-shrink:0}
 
----
+/* ── IMPACT ── */
+.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-bottom:2.5rem}
+.icard{background:var(--wh);border-radius:var(--r);padding:2.2rem 1.8rem;border:1px solid rgba(45,122,79,.1);box-shadow:var(--sh);transition:var(--tr);text-align:center}
+.icard:hover{transform:translateY(-4px);border-color:var(--g4)}
+.iic{font-size:2.6rem;margin-bottom:.9rem}
+.icard h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.6rem;color:var(--g2)}
+.icard p{font-size:.84rem;color:var(--muted);line-height:1.65}
+.ibanner{background:var(--g2);border-radius:var(--r);padding:2.2rem 2.8rem;text-align:center}
+.ibig{font-family:'Playfair Display',serif;font-size:clamp(1rem,2.2vw,1.45rem);color:var(--g5);font-style:italic}
 
-## 📁 Agregar imágenes estáticas (opcional)
+/* ── CONTACT ── */
+.ci-list{display:flex;flex-direction:column;gap:1.1rem;margin-bottom:1.8rem}
+.ci{display:flex;align-items:center;gap:1rem}
+.ci-ic{width:44px;height:44px;background:rgba(76,175,125,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g5);flex-shrink:0}
+.ci strong{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:.12rem}
+.ci span{color:#fff;font-size:.9rem}
+.soc-row{display:flex;gap:.75rem;margin-top:.5rem}
+.soc-btn{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:#fff;transition:var(--tr)}
+.soc-btn:hover{transform:scale(1.12) translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.fb{background:#1877f2}
+.wa{background:#25d366}
+.cf{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:2.2rem}
+.cf h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:1.6rem}
+.fg{margin-bottom:1.1rem}
+.fg label{display:block;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:.4rem}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);color:#fff;padding:.8rem .95rem;border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:.88rem;transition:var(--tr);outline:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.28)}
+.fg select option{background:var(--ch2);color:#fff}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g4);background:rgba(76,175,125,.07)}
+.fg textarea{resize:vertical}
+.fsuc{display:none;margin-top:.9rem;background:rgba(76,175,125,.14);border:1px solid var(--g4);color:var(--g5);padding:.85rem 1rem;border-radius:var(--rs);font-size:.88rem;text-align:center}
 
-Si quieres que las imágenes funcionen sin el panel admin, puedes colocar archivos en las siguientes rutas:
+/* ── FOOTER ── */
+footer{background:#060f09;padding:3rem 2rem 1.5rem;color:rgba(255,255,255,.5)}
+.ft{max-width:1200px;margin:0 auto}
+.ft-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.8rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:1.4rem}
+.ft-brand{display:flex;align-items:center;gap:.9rem}
+.ft-logo{height:46px}
+.ft-brand strong{display:block;color:#fff;font-size:.95rem}
+.ft-brand p{font-size:.76rem;color:rgba(255,255,255,.35)}
+.ft-links{display:flex;gap:1.3rem;flex-wrap:wrap}
+.ft-links a{font-size:.82rem;color:rgba(255,255,255,.45);transition:var(--tr)}
+.ft-links a:hover{color:var(--g5)}
+.ft-soc{display:flex;gap:.7rem}
+.ft-soc a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);font-size:.85rem;transition:var(--tr)}
+.ft-soc a:hover{background:var(--g4);color:#fff}
+.ft-bot{text-align:center;font-size:.74rem}
 
-| Imagen | Ruta |
-|--------|------|
-| Logo | `logo.png` |
-| Imagen hero | `hero-product.jpg` |
-| Sobre nosotros | `about-us.jpg` |
-| Silla | `productos/silla.jpg` |
-| Mesa | `productos/mesa.jpg` |
-| Puff | `productos/puff.jpg` |
-| Macetero | `productos/macetero.jpg` |
-| Personalizado | `productos/personalizado.jpg` |
+/* ── WA FLOAT ── */
+.waf{position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.55rem;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.5);z-index:99;transition:var(--tr);animation:pwf 2.5s ease-in-out infinite}
+.waf:hover{transform:scale(1.1)}
 
----
+/* ── ADMIN MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:300;backdrop-filter:blur(6px);align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:#fff;border-radius:20px;width:min(680px,95vw);max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;padding:1.6rem 2rem;border-bottom:1px solid #e8e3d8;position:sticky;top:0;background:#fff;z-index:1}
+.modal-head h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--g2)}
+.modal-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:#999;line-height:1;transition:var(--tr)}
+.modal-close:hover{color:var(--g2)}
+.modal-body{padding:1.8rem 2rem}
+.m-tabs{display:flex;gap:.3rem;margin-bottom:1.6rem;flex-wrap:wrap}
+.m-tab{padding:.5rem 1rem;border-radius:100px;border:1.5px solid #ddd;background:none;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;cursor:pointer;transition:var(--tr)}
+.m-tab.on{background:var(--g3);color:#fff;border-color:var(--g3)}
+.m-pnl{display:none}.m-pnl.on{display:block}
+.mf{margin-bottom:1rem}
+.mf label{display:block;font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--g2);margin-bottom:.35rem}
+.mf input,.mf select,.mf textarea{width:100%;border:1.5px solid #ddd;border-radius:var(--rs);padding:.72rem .9rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--ch);background:#faf8f4;outline:none;transition:.2s}
+.mf input:focus,.mf textarea:focus{border-color:var(--g4);background:#fff}
+.mf small{font-size:.72rem;color:#aaa;margin-top:.2rem;display:block}
+.mf-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.btn-admin{display:inline-flex;align-items:center;gap:.5rem;background:var(--g3);color:#fff;padding:.75rem 1.6rem;border-radius:100px;border:none;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;cursor:pointer;transition:.2s}
+.btn-admin:hover{background:var(--g2)}
+.m-ok{margin-top:.8rem;padding:.75rem 1rem;background:#e8f8ee;border:1px solid var(--g4);color:var(--g2);border-radius:var(--rs);font-size:.85rem;display:none}
+.up-box{border:2px dashed #d0ccc0;border-radius:var(--rs);background:#faf8f4;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.up-box:hover{border-color:var(--g4);background:#f0f9f4}
+.up-box input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.up-box-in{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:1.4rem;color:#bbb;font-size:.82rem;text-align:center}
+.up-box-in i{font-size:1.8rem}
+.up-preview{width:100%;object-fit:contain;max-height:180px;border-radius:var(--rs);display:none;margin-top:.6rem}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.6rem;margin-top:.8rem}
+.gal-item{position:relative;aspect-ratio:1;border-radius:var(--rs);overflow:hidden;background:#eee}
+.gal-item img{width:100%;height:100%;object-fit:cover}
+.gal-del{position:absolute;top:5px;right:5px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.7rem;cursor:pointer;transition:.2s}
+.gal-del:hover{background:#f44336}
+.gal-empty{grid-column:1/-1;text-align:center;padding:1.5rem;color:#bbb;font-size:.82rem;border:2px dashed #e0dbd0;border-radius:var(--rs)}
+.prod-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.pimg-admin{display:flex;flex-direction:column;gap:.4rem;align-items:center}
+.pimg-admin .up-box{width:100%;aspect-ratio:1}
+.pimg-admin .btn-rm{background:none;border:1px solid #ddd;color:#999;padding:.3rem .7rem;border-radius:var(--rs);font-size:.72rem;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:.3rem}
+.pimg-admin .btn-rm:hover{border-color:#f44336;color:#f44336}
+.pname{font-size:.7rem;color:#888;text-align:center;font-weight:500}
+.soc-admin{display:flex;flex-direction:column;gap:.8rem}
 
-## 🌐 Publicar en internet (gratis)
+/* ── GALLERY SECTION ── */
+.gal-pub{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;min-height:120px}
+.gal-pub-item{border-radius:var(--rs);overflow:hidden;aspect-ratio:1;background:var(--cr2)}
+.gal-pub-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-pub-item:hover img{transform:scale(1.06)}
+.gal-empty-pub{grid-column:1/-1;text-align:center;padding:2.5rem;color:var(--muted);font-size:.88rem}
+.gal-empty-pub i{font-size:2rem;display:block;margin-bottom:.5rem;opacity:.3}
 
-### Opción 1 — Netlify Drop (más fácil)
-1. Entra a https://netlify.com/drop
-2. Arrastra la carpeta `ecomuebles/` completa
-3. ¡Tu sitio estará en línea en segundos!
+/* ── ANIMATIONS ── */
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pwf{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.75)}}
+.fi{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fi.vis{opacity:1;transform:translateY(0)}
 
-### Opción 2 — GitHub Pages
-1. Crea un repositorio en GitHub
-2. Sube todos los archivos
-3. Ve a Settings → Pages → Source: main branch
-4. Tu sitio estará en `https://tuusuario.github.io/ecomuebles`
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .two{grid-template-columns:1fr;gap:2.5rem}
+  .mvg-grid{grid-template-columns:1fr}
+  .imp-grid{grid-template-columns:1fr}
+  .hero{flex-direction:column;text-align:center;padding-top:90px}
+  .hero-v{margin-top:2rem}
+  .hero-orb{width:240px;height:240px}
+  .h-stats,.h-ctas{justify-content:center}
+  .nav-ul{display:none;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:rgba(13,43,24,.97);padding:1.3rem;gap:.4rem}
+  .nav-ul.op{display:flex}
+  .hbg{display:flex}
+  .proc-wrap{flex-direction:column}
+  .parr{display:none}
+  .prod-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .mf-row{grid-template-columns:1fr}
+  .prod-img-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .sec{padding:70px 1.2rem}
+  .hero{padding:86px 1.2rem 70px}
+  .ft-top{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
 
----
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <div class="nav-logo">
+      <img id="logoImg" src="" alt="ECO MUEBLES MLJ"/>
+      <span id="logoTxt" style="display:none">ECO MUEBLES</span>
+    </div>
+    <ul class="nav-ul" id="navUl">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#mision">Misión</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#impacto">Impacto</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#" class="adm" onclick="openAdmin();return false"><i class="fa fa-cog"></i> Admin</a></li>
+    </ul>
+    <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-## 📞 Secciones del sitio
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-c">
+    <div class="h-badge">🌿 Economía Circular</div>
+    <h1 class="h-title">Transformamos<br/><span class="h-acc">llantas en desuso</span><br/>en muebles ecológicos</h1>
+    <p class="h-sub">Diseño sostenible, resistente y funcional para espacios que respetan el planeta.</p>
+    <div class="h-ctas">
+      <a href="#productos" class="btn btn-g">Ver Productos</a>
+      <a href="#proceso" class="btn btn-o">¿Cómo lo hacemos?</a>
+    </div>
+    <div class="h-stats">
+      <div><span class="s-num">100%</span><span class="s-lbl">Reciclado</span></div>
+      <div><span class="s-num">0</span><span class="s-lbl">Al basurero</span></div>
+      <div><span class="s-num">♻️</span><span class="s-lbl">Impacto positivo</span></div>
+    </div>
+  </div>
+  <div class="hero-v">
+    <div class="hero-orb" id="heroOrb">
+      <img id="heroImgEl" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+      <div class="hero-orb-ph" id="heroOrbPh"><i class="fa fa-chair"></i><span>Imagen del producto</span></div>
+    </div>
+  </div>
+</section>
 
-1. **Inicio (Hero)** — Frase impactante + imagen + botones CTA
-2. **Sobre Nosotros** — Historia y valores
-3. **Misión / Visión / Objetivo**
-4. **Productos** — 5 tarjetas de productos
-5. **Proceso** — 5 pasos del proceso productivo
-6. **Impacto Ambiental** — 3 pilares + banner
-7. **Galería** — Fotos de trabajos
-8. **Contacto** — Datos + formulario + redes sociales
-9. **Footer** — Links y redes
+<!-- SOBRE NOSOTROS -->
+<section class="sec" id="nosotros">
+  <div class="wrap two">
+    <div class="fi">
+      <div class="tag">Sobre Nosotros</div>
+      <h2 class="ttl">Quiénes Somos</h2>
+      <p class="body-t"><strong>ECO MUEBLES MLJ S.A.</strong> es una empresa enfocada en la fabricación de muebles ecológicos a partir de llantas recicladas. Combinamos diseño, funcionalidad y responsabilidad ambiental para crear piezas únicas.</p>
+      <p class="body-t">Surgimos a partir de un plan de negocios con enfoque ambiental, respondiendo a la necesidad de alternativas sostenibles en el sector del mueble y el diseño de interiores.</p>
+      <div class="vals">
+        <div class="vc">🌱 Sostenibilidad</div>
+        <div class="vc">💡 Innovación</div>
+        <div class="vc">🤝 Responsabilidad Social</div>
+        <div class="vc">⭐ Calidad</div>
+      </div>
+    </div>
+    <div class="ab-vis fi">
+      <div class="ab-img">
+        <img id="aboutImgEl" src="" alt="" style="display:none"/>
+        <div class="ab-ph" id="aboutPh"><i class="fa fa-leaf"></i></div>
+      </div>
+      <div class="ab-badge">MLJ S.A.</div>
+    </div>
+  </div>
+</section>
 
----
+<!-- MISIÓN / VISIÓN / OBJETIVO -->
+<section class="sec sec-dk" id="mision">
+  <div class="wrap">
+    <div class="tag lt">Propósito</div>
+    <h2 class="ttl lt">Nuestra Razón de Ser</h2>
+    <div class="mvg-grid">
+      <div class="mvg fi">
+        <div class="mvg-ic"><i class="fa fa-bullseye"></i></div>
+        <h3>Misión</h3>
+        <p>Ofrecer muebles ecológicos elaborados a partir de llantas recicladas, brindando soluciones funcionales y sostenibles que contribuyan al cuidado del medio ambiente.</p>
+      </div>
+      <div class="mvg fi">
+        <div class="mvg-ic"><i class="fa fa-eye"></i></div>
+        <h3>Visión</h3>
+        <p>Ser una empresa reconocida a nivel nacional por la innovación en el diseño de muebles ecológicos, promoviendo la economía circular y el desarrollo sostenible.</p>
+      </div>
+      <div class="mvg fi">
+        <div class="mvg-ic"><i class="fa fa-flag"></i></div>
+        <h3>Objetivo General</h3>
+        <p>Desarrollar y comercializar muebles ecológicos a partir de materiales reciclados, reduciendo el impacto ambiental y generando valor económico.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-ECO MUEBLES MLJ S.A. — Diseño que cuida el planeta 🌿
+<!-- PRODUCTOS -->
+<section class="sec" id="productos">
+  <div class="wrap">
+    <div class="tag">Catálogo</div>
+    <h2 class="ttl">Nuestros Productos</h2>
+    <p class="sub">Cada pieza es única. Fabricada con llantas recicladas, diseñada para durar.</p>
+    <div class="prod-grid">
+      <div class="pcard fi">
+        <div class="pimg">
+          <img id="pimg0" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <div class="pimg-ph" id="pph0"><i class="fa fa-chair"></i><span>Silla Ecológica</span></div>
+          <div class="pbadge">Bestseller</div>
+        </div>
+        <div class="pinfo"><h3>Silla Ecológica</h3><p>Diseñada con llanta reciclada y estructura metálica. Resistente, cómoda y 100% ecológica.</p><div class="ptags"><span>♻️ Reciclado</span><span>💪 Resistente</span></div></div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg">
+          <img id="pimg1" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <div class="pimg-ph" id="pph1"><i class="fa fa-table"></i><span>Mesa con Llantas</span></div>
+        </div>
+        <div class="pinfo"><h3>Mesa con Llantas</h3><p>Mesa de centro usando llantas como base estructural. Estética industrial con alma verde.</p><div class="ptags"><span>🌿 Eco-friendly</span><span>🎨 Personalizable</span></div></div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg">
+          <img id="pimg2" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <div class="pimg-ph" id="pph2"><i class="fa fa-circle"></i><span>Puff Decorativo</span></div>
+        </div>
+        <div class="pinfo"><h3>Puff Decorativo</h3><p>Llanta reciclada tapizada con telas de alta calidad. Ideal para salas y espacios creativos.</p><div class="ptags"><span>🛋️ Confort</span><span>✨ Decorativo</span></div></div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg">
+          <img id="pimg3" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <div class="pimg-ph" id="pph3"><i class="fa fa-seedling"></i><span>Macetero Ecológico</span></div>
+        </div>
+        <div class="pinfo"><h3>Macetero Ecológico</h3><p>Llantas transformadas en maceteros para jardín o interior. Creativo y sostenible.</p><div class="ptags"><span>🌺 Jardín</span><span>♻️ Reciclado</span></div></div>
+      </div>
+      <div class="pcard fi">
+        <div class="pimg">
+          <img id="pimg4" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0"/>
+          <div class="pimg-ph" id="pph4"><i class="fa fa-pencil-ruler"></i><span>Mueble Personalizado</span></div>
+          <div class="pbadge" style="background:var(--g2)">A medida</div>
+        </div>
+        <div class="pinfo"><h3>Muebles Personalizados</h3><p>Diseñamos el mueble que necesitas. Medidas, colores y estilos adaptados a tu espacio.</p><div class="ptags"><span>📐 A medida</span><span>🎨 Tu diseño</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="sec sec-gr" id="proceso">
+  <div class="wrap">
+    <div class="tag lt">Proceso</div>
+    <h2 class="ttl lt">¿Cómo lo Hacemos?</h2>
+    <p class="sub lt">Un proceso cuidadoso, artesanal y responsable de inicio a fin.</p>
+    <div class="proc-wrap">
+      <div class="pstep fi"><div class="sn">01</div><div class="si"><i class="fa fa-truck"></i></div><h3>Recolección</h3><p>Recogemos llantas en desuso de talleres y puntos de acopio.</p></div>
+      <div class="parr"><i class="fa fa-chevron-right"></i></div>
+      <div class="pstep fi"><div class="sn">02</div><div class="si"><i class="fa fa-soap"></i></div><h3>Limpieza</h3><p>Cada llanta se limpia, desinfecta y trata para durabilidad.</p></div>
+      <div class="parr"><i class="fa fa-chevron-right"></i></div>
+      <div class="pstep fi"><div class="sn">03</div><div class="si"><i class="fa fa-pencil-ruler"></i></div><h3>Diseño</h3><p>Nuestro equipo diseña pensando en funcionalidad y estética.</p></div>
+      <div class="parr"><i class="fa fa-chevron-right"></i></div>
+      <div class="pstep fi"><div class="sn">04</div><div class="si"><i class="fa fa-tools"></i></div><h3>Ensamblaje</h3><p>Unimos piezas con técnicas artesanales e industriales de calidad.</p></div>
+      <div class="parr"><i class="fa fa-chevron-right"></i></div>
+      <div class="pstep fi"><div class="sn">05</div><div class="si"><i class="fa fa-star"></i></div><h3>Acabado Final</h3><p>Pinturas, tapizados y detalles que dan vida a cada mueble.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO AMBIENTAL -->
+<section class="sec" id="impacto">
+  <div class="wrap">
+    <div class="tag">Medio Ambiente</div>
+    <h2 class="ttl">Nuestro Impacto Ambiental</h2>
+    <p class="sub">Cada mueble que fabricamos es una llanta que no contamina el planeta.</p>
+    <div class="imp-grid">
+      <div class="icard fi"><div class="iic">🗑️</div><h3>Reducción de Residuos</h3><p>Las llantas son uno de los residuos más difíciles de eliminar. Nosotros les damos una nueva vida útil.</p></div>
+      <div class="icard fi"><div class="iic">🔄</div><h3>Reutilización de Materiales</h3><p>Aplicamos los principios de la economía circular: lo que ya fue usado, vuelve a tener valor.</p></div>
+      <div class="icard fi"><div class="iic">🌍</div><h3>Contribución Sostenible</h3><p>Cada compra apoya un modelo de negocio responsable que cuida el planeta para el futuro.</p></div>
+    </div>
+    <div class="ibanner fi">
+      <p class="ibig">"Cada producto evita que una llanta termine contaminando el ambiente."</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="sec sec-lt" id="galeria">
+  <div class="wrap">
+    <div class="tag">Galería</div>
+    <h2 class="ttl">Nuestros Trabajos</h2>
+    <div class="gal-pub" id="galPub">
+      <div class="gal-empty-pub"><i class="fa fa-images"></i>Las fotos de trabajos se añaden desde el panel <strong>Admin</strong>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="sec sec-dk" id="contacto">
+  <div class="wrap two">
+    <div class="fi">
+      <div class="tag lt">Contacto</div>
+      <h2 class="ttl lt">Hablemos</h2>
+      <div class="ci-list">
+        <div class="ci"><div class="ci-ic"><i class="fa fa-phone"></i></div><div><strong>Teléfono</strong><span id="d-phone">+593 999 999 999</span></div></div>
+        <div class="ci"><div class="ci-ic"><i class="fa fa-envelope"></i></div><div><strong>Correo</strong><span id="d-email">ecomuebles.mlj@gmail.com</span></div></div>
+        <div class="ci"><div class="ci-ic"><i class="fa fa-map-marker-alt"></i></div><div><strong>Ubicación</strong><span id="d-loc">Ecuador</span></div></div>
+      </div>
+      <div class="soc-row">
+        <a class="soc-btn ig" id="s-ig" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="soc-btn fb" id="s-fb" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="soc-btn wa" id="s-wa" href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="cf fi">
+      <h3>Envíanos un mensaje</h3>
+      <form onsubmit="submitForm(event)">
+        <div class="fg"><label>Nombre completo</label><input type="text" placeholder="Tu nombre" required/></div>
+        <div class="fg"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com" required/></div>
+        <div class="fg"><label>¿En qué podemos ayudarte?</label>
+          <select><option>Cotización de producto</option><option>Mueble personalizado</option><option>Información general</option><option>Alianzas o proveedores</option></select>
+        </div>
+        <div class="fg"><label>Mensaje</label><textarea placeholder="Escribe tu mensaje..." rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-g btn-full">Enviar Mensaje <i class="fa fa-paper-plane"></i></button>
+        <div class="fsuc" id="fsuc">✅ ¡Mensaje recibido! Te contactaremos pronto.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img id="ftLogo" class="ft-logo" src="" alt="" style="display:none"/>
+        <div><strong>ECO MUEBLES MLJ S.A.</strong><p>Diseño que cuida el planeta</p></div>
+      </div>
+      <div class="ft-links">
+        <a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a>
+        <a href="#productos">Productos</a><a href="#contacto">Contacto</a>
+      </div>
+      <div class="ft-soc">
+        <a id="ft-ig" href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a id="ft-fb" href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a id="ft-wa" href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="ft-bot">© 2026 ECO MUEBLES MLJ S.A. — Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="waf" id="wafBtn" href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<!-- ADMIN MODAL -->
+<div class="modal-bg" id="adminModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>⚙️ Panel de Administración</h2>
+      <button class="modal-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-tabs">
+        <button class="m-tab on" onclick="mTab(this,'tc')">📞 Contacto</button>
+        <button class="m-tab" onclick="mTab(this,'tr')">📱 Redes</button>
+        <button class="m-tab" onclick="mTab(this,'ti')">🖼 Imágenes</button>
+        <button class="m-tab" onclick="mTab(this,'tp')">🪑 Productos</button>
+        <button class="m-tab" onclick="mTab(this,'tg')">📷 Galería</button>
+      </div>
+
+      <!-- CONTACTO -->
+      <div class="m-pnl on" id="tc">
+        <div class="mf-row">
+          <div class="mf"><label>📞 Teléfono</label><input id="a-phone" placeholder="+593 999 999 999"/></div>
+          <div class="mf"><label>✉️ Correo</label><input id="a-email" type="email" placeholder="tu@correo.com"/></div>
+        </div>
+        <div class="mf"><label>📍 Ubicación / Ciudad</label><input id="a-loc" placeholder="Paute, Azuay, Ecuador"/></div>
+        <button class="btn-admin" onclick="saveContact()"><i class="fa fa-save"></i> Guardar</button>
+        <div class="m-ok" id="ok-tc">✅ Contacto guardado correctamente.</div>
+      </div>
+
+      <!-- REDES -->
+      <div class="m-pnl" id="tr">
+        <div class="mf"><label><i class="fab fa-instagram"></i> Instagram URL</label><input id="a-ig" placeholder="https://instagram.com/tu_perfil"/></div>
+        <div class="mf"><label><i class="fab fa-facebook-f"></i> Facebook URL</label><input id="a-fb" placeholder="https://facebook.com/tu_pagina"/></div>
+        <div class="mf"><label><i class="fab fa-whatsapp"></i> WhatsApp (número)</label><input id="a-wa" placeholder="+593987654321"/><small>Solo números con código de país. Ej: +593987654321</small></div>
+        <button class="btn-admin" onclick="saveRedes()"><i class="fa fa-save"></i> Guardar</button>
+        <div class="m-ok" id="ok-tr">✅ Redes sociales guardadas.</div>
+      </div>
+
+      <!-- IMÁGENES PRINCIPALES -->
+      <div class="m-pnl" id="ti">
+        <div class="mf-row">
+          <div class="mf">
+            <label>🖼 Imagen Hero (portada)</label>
+            <div class="up-box" style="height:160px">
+              <div class="up-box-in"><i class="fa fa-upload"></i><span>Seleccionar imagen</span></div>
+              <input type="file" accept="image/*" onchange="uploadImg(this,'heroImg','prevHero','heroPh')"/>
+            </div>
+            <img class="up-preview" id="prevHero"/>
+            <button class="btn-admin" style="margin-top:.5rem;font-size:.75rem;padding:.45rem 1rem" onclick="removeImg('heroImg','prevHero','heroPh')"><i class="fa fa-trash"></i> Quitar</button>
+          </div>
+          <div class="mf">
+            <label>👥 Imagen Nosotros</label>
+            <div class="up-box" style="height:160px">
+              <div class="up-box-in"><i class="fa fa-upload"></i><span>Seleccionar imagen</span></div>
+              <input type="file" accept="image/*" onchange="uploadImg(this,'aboutImg','prevAbout','aboutPh')"/>
+            </div>
+            <img class="up-preview" id="prevAbout"/>
+            <button class="btn-admin" style="margin-top:.5rem;font-size:.75rem;padding:.45rem 1rem" onclick="removeImg('aboutImg','prevAbout','aboutPh')"><i class="fa fa-trash"></i> Quitar</button>
+          </div>
+        </div>
+        <div class="m-ok" id="ok-ti">✅ Imagen guardada.</div>
+      </div>
+
+      <!-- IMÁGENES PRODUCTOS -->
+      <div class="m-pnl" id="tp">
+        <p style="font-size:.82rem;color:#888;margin-bottom:1rem">Sube la imagen para cada producto. Máx recomendado: 1MB por foto.</p>
+        <div class="prod-img-grid" id="prodAdminGrid"></div>
+        <div class="m-ok" id="ok-tp">✅ Imagen de producto guardada.</div>
+      </div>
+
+      <!-- GALERÍA -->
+      <div class="m-pnl" id="tg">
+        <div class="mf">
+          <label>➕ Añadir imágenes (puedes seleccionar varias)</label>
+          <div class="up-box" style="height:100px">
+            <div class="up-box-in"><i class="fa fa-images"></i><span>Seleccionar imágenes</span></div>
+            <input type="file" accept="image/*" multiple onchange="addGallery(this)"/>
+          </div>
+        </div>
+        <div class="gal-grid" id="galAdminGrid"></div>
+        <div class="m-ok" id="ok-tg">✅ Galería actualizada.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================
+//   ECO MUEBLES — JavaScript (todo en uno)
+// ============================================
+
+const KEY = 'ecomb_v1';
+function gd(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return{}}}
+function sd(d){localStorage.setItem(KEY,JSON.stringify(d))}
+function ok(id){const el=document.getElementById(id);if(el){el.style.display='block';setTimeout(()=>el.style.display='none',3000)}}
+
+// Navbar scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('sc',scrollY>40);
+});
+
+// Hamburger
+document.getElementById('hbg').addEventListener('click',()=>{
+  document.getElementById('navUl').classList.toggle('op');
+});
+document.querySelectorAll('.nav-ul a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navUl').classList.remove('op')));
+
+// Fade-in observer
+const obs=new IntersectionObserver((ents)=>{
+  ents.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*80);obs.unobserve(e.target)}
+  });
+},{threshold:.1});
+document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
+
+// Contact form
+function submitForm(e){
+  e.preventDefault();
+  const el=document.getElementById('fsuc');
+  el.style.display='block';
+  e.target.reset();
+  setTimeout(()=>el.style.display='none',5000);
+}
+
+// Admin modal
+function openAdmin(){document.getElementById('adminModal').classList.add('open')}
+function closeAdmin(){document.getElementById('adminModal').classList.remove('open')}
+document.getElementById('adminModal').addEventListener('click',function(e){if(e.target===this)closeAdmin()});
+
+// Admin tabs
+function mTab(btn,id){
+  document.querySelectorAll('.m-tab').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.m-pnl').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+// Save contact
+function saveContact(){
+  const d=gd();
+  d.phone=document.getElementById('a-phone').value.trim();
+  d.email=document.getElementById('a-email').value.trim();
+  d.loc=document.getElementById('a-loc').value.trim();
+  sd(d);applyContact(d);ok('ok-tc');
+}
+function applyContact(d){
+  if(d.phone)document.getElementById('d-phone').textContent=d.phone;
+  if(d.email)document.getElementById('d-email').textContent=d.email;
+  if(d.loc)document.getElementById('d-loc').textContent=d.loc;
+}
+
+// Save redes
+function saveRedes(){
+  const d=gd();
+  d.ig=document.getElementById('a-ig').value.trim();
+  d.fb=document.getElementById('a-fb').value.trim();
+  d.wa=document.getElementById('a-wa').value.trim();
+  sd(d);applyRedes(d);ok('ok-tr');
+}
+function applyRedes(d){
+  const waUrl=d.wa?`https://wa.me/${d.wa.replace(/\D/g,'')}`:'#';
+  if(d.ig){['s-ig','ft-ig'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=d.ig})}
+  if(d.fb){['s-fb','ft-fb'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=d.fb})}
+  if(d.wa){['s-wa','ft-wa','wafBtn'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=waUrl})}
+}
+
+// Upload image
+function uploadImg(input,key,prevId,phId){
+  const file=input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=function(e){
+    const b64=e.target.result;
+    const d=gd();d[key]=b64;sd(d);
+    applyImg(key,b64);
+    const prev=document.getElementById(prevId);
+    if(prev){prev.src=b64;prev.style.display='block';}
+    ok('ok-ti');
+  };
+  r.readAsDataURL(file);
+}
+function removeImg(key,prevId,phId){
+  const d=gd();delete d[key];sd(d);
+  const prev=document.getElementById(prevId);
+  if(prev){prev.src='';prev.style.display='none';}
+  applyImg(key,'');
+  ok('ok-ti');
+}
+function applyImg(key,src){
+  if(key==='heroImg'){
+    const img=document.getElementById('heroImgEl'),ph=document.getElementById('heroOrbPh');
+    if(src){img.src=src;img.style.display='block';if(ph)ph.style.display='none';}
+    else{img.style.display='none';if(ph)ph.style.display='flex';}
+  }
+  if(key==='aboutImg'){
+    const img=document.getElementById('aboutImgEl'),ph=document.getElementById('aboutPh');
+    if(src){img.src=src;img.style.display='block';if(ph)ph.style.display='none';}
+    else{img.style.display='none';if(ph)ph.style.display='flex';}
+  }
+}
+
+// Product images
+const PRODS=['Silla Ecológica','Mesa con Llantas','Puff Decorativo','Macetero Ecológico','Mueble Personalizado'];
+function buildProdAdmin(){
+  const grid=document.getElementById('prodAdminGrid');
+  const d=gd();
+  grid.innerHTML='';
+  PRODS.forEach((name,i)=>{
+    const k=`pimg${i}`;
+    const hasSrc=!!d[k];
+    const div=document.createElement('div');
+    div.className='pimg-admin';
+    div.innerHTML=`
+      <div class="up-box" style="width:100%;aspect-ratio:1">
+        <div class="up-box-in"><i class="fa fa-upload"></i></div>
+        <input type="file" accept="image/*" onchange="uploadProd(this,${i})"/>
+      </div>
+      <img id="pp${i}" src="${hasSrc?d[k]:''}" style="width:100%;max-height:90px;object-fit:cover;border-radius:6px;margin-top:.3rem;display:${hasSrc?'block':'none'}"/>
+      <div class="pname">${name}</div>
+      <button class="btn-rm" onclick="removeProd(${i})"><i class="fa fa-trash"></i> Quitar</button>
+    `;
+    grid.appendChild(div);
+  });
+}
+function uploadProd(input,i){
+  const file=input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=function(e){
+    const b64=e.target.result;
+    const d=gd();d[`pimg${i}`]=b64;sd(d);
+    // Update main site card
+    const img=document.getElementById(`pimg${i}`),ph=document.getElementById(`pph${i}`);
+    if(img){img.src=b64;img.style.display='block';}
+    if(ph)ph.style.display='none';
+    // Update admin preview
+    const pp=document.getElementById(`pp${i}`);
+    if(pp){pp.src=b64;pp.style.display='block';}
+    ok('ok-tp');
+  };
+  r.readAsDataURL(file);
+}
+function removeProd(i){
+  const d=gd();delete d[`pimg${i}`];sd(d);
+  const img=document.getElementById(`pimg${i}`),ph=document.getElementById(`pph${i}`),pp=document.getElementById(`pp${i}`);
+  if(img)img.style.display='none';
+  if(ph)ph.style.display='flex';
+  if(pp){pp.src='';pp.style.display='none';}
+  ok('ok-tp');
+}
+
+// Gallery
+function addGallery(input){
+  const files=Array.from(input.files);
+  const d=gd();if(!d.gal)d.gal=[];
+  let done=0;
+  files.forEach(f=>{
+    const r=new FileReader();
+    r.onload=e=>{
+      d.gal.push(e.target.result);done++;
+      if(done===files.length){sd(d);renderGalPub(d);renderGalAdmin(d);ok('ok-tg');}
+    };
+    r.readAsDataURL(f);
+  });
+  input.value='';
+}
+function removeGal(i){
+  const d=gd();d.gal.splice(i,1);sd(d);renderGalPub(d);renderGalAdmin(d);ok('ok-tg');
+}
+function renderGalPub(d){
+  const g=document.getElementById('galPub');
+  if(!d.gal||!d.gal.length){
+    g.innerHTML='<div class="gal-empty-pub"><i class="fa fa-images"></i>Las fotos se añaden desde el panel <strong>Admin</strong>.</div>';
+    return;
+  }
+  g.innerHTML='';
+  d.gal.forEach(src=>{
+    const div=document.createElement('div');div.className='gal-pub-item';
+    div.innerHTML=`<img src="${src}" alt="Galería"/>`;g.appendChild(div);
+  });
+}
+function renderGalAdmin(d){
+  const g=document.getElementById('galAdminGrid');
+  if(!d.gal||!d.gal.length){g.innerHTML='<div class="gal-empty">Sin imágenes aún. ☝️ Sube algunas arriba.</div>';return;}
+  g.innerHTML='';
+  d.gal.forEach((src,i)=>{
+    const div=document.createElement('div');div.className='gal-item';
+    div.innerHTML=`<img src="${src}" alt=""/><button class="gal-del" onclick="removeGal(${i})"><i class="fa fa-times"></i></button>`;
+    g.appendChild(div);
+  });
+}
+
+// LOGO — embed the provided logo as default
+const LOGO_B64 = 'LOGO_PLACEHOLDER';
+
+// Load everything on start
+function init(){
+  // Set default logo
+  const logoEl=document.getElementById('logoImg');
+  const ftLogoEl=document.getElementById('ftLogo');
+  if(LOGO_B64!=='LOGO_PLACEHOLDER'){
+    logoEl.src='data:image/jpeg;base64,'+LOGO_B64;
+    logoEl.style.display='block';
+    ftLogoEl.src='data:image/jpeg;base64,'+LOGO_B64;
+    ftLogoEl.style.display='block';
+  } else {
+    logoEl.style.display='none';
+    document.getElementById('logoTxt').style.display='block';
+  }
+
+  const d=gd();
+
+  // Contact
+  if(d.phone)document.getElementById('a-phone').value=d.phone;
+  if(d.email)document.getElementById('a-email').value=d.email;
+  if(d.loc)document.getElementById('a-loc').value=d.loc;
+  applyContact(d);
+
+  // Redes
+  if(d.ig)document.getElementById('a-ig').value=d.ig;
+  if(d.fb)document.getElementById('a-fb').value=d.fb;
+  if(d.wa)document.getElementById('a-wa').value=d.wa;
+  applyRedes(d);
+
+  // Images
+  ['heroImg','aboutImg'].forEach(k=>{if(d[k])applyImg(k,d[k])});
+
+  // Product images
+  PRODS.forEach((_,i)=>{
+    const k=`pimg${i}`;
+    if(d[k]){
+      const img=document.getElementById(`pimg${i}`),ph=document.getElementById(`pph${i}`);
+      if(img){img.src=d[k];img.style.display='block';}
+      if(ph)ph.style.display='none';
+    }
+  });
+
+  // Gallery
+  renderGalPub(d);
+  renderGalAdmin(d);
+  buildProdAdmin();
+}
+
+init();
+</script>
+</body>
+</html>
